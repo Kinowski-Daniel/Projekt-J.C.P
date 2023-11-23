@@ -1,0 +1,107 @@
+body{
+    background-color: black;
+}
+input[type="search"] {
+  padding: 8px;
+  font-size: 16px;
+  
+  
+  margin-top: 5%;
+}
+
+button {
+  padding: 10px 8px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: orange;
+  margin-top: 5%;
+
+}
+h1{
+    color: white;
+}
+.btn {
+  color: white;
+  background-color: orange;
+}
+#searchButton:hover{
+    background-color: orangered;
+}
+#obsButton:hover{
+    background-color: orangered;
+}
+.pic-container{
+width: auto;
+height: 400px;
+background-color: rgb(143, 102, 102);
+float: left;
+
+}
+.opis-container{
+    width: auto;
+    height: 400px;
+    background-color: rgb(44, 42, 42);
+    color: white;
+    margin-left: 5%;
+    text-align-last: left;
+    padding: 20px;
+    padding-left: 21%;
+    font-size: inherit;
+}
+#naczasie{
+    width: 1300px;
+}
+.movies-container{
+    color: white;
+}
+.movies-slider {
+      overflow: hidden;
+    }
+
+    .movies-container {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .movie {
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .movie img {
+      width: 100%;
+      height: auto;
+    }
+
+    .movie:hover {
+      transform: scale(1.05);
+    }
+    .movies-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .movie-poster {
+      text-align: center;
+    }
+
+    .movie-poster img {
+      width: 200px;
+      border-radius: 8px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .movie-poster p {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .movie-poster:hover img {
+      transform: scale(1.05);
+    }
