@@ -37,6 +37,9 @@ h1{
 #searchButton:hover{
     background-color: orangered;
 }
+#obsButton:hover{
+    background-color: orangered;
+}
 .pic-container{
 width: auto;
 height: 400px;
@@ -58,7 +61,60 @@ float: left;
 #naczasie{
     width: 1300px;
 }
+.movies-container{
+    color: white;
+}
+.movies-slider {
+      overflow: hidden;
+    }
 
+    .movies-container {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .movie {
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .movie img {
+      width: 100%;
+      height: auto;
+    }
+
+    .movie:hover {
+      transform: scale(1.05);
+    }
+    .movies-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .movie-poster {
+      text-align: center;
+    }
+
+    .movie-poster img {
+      width: 200px;
+      border-radius: 8px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .movie-poster p {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .movie-poster:hover img {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
@@ -71,27 +127,21 @@ float: left;
         <button class="btn btn " id="searchButton">Szukaj</button>
       </div>
     </div>
+    <h1 class="text-center mt-4">Najbardziej popularne filmy</h1>
 </div>
 
-    <div class="movies-container" id="moviesContainer">
-      <!-- Tutaj będą wyświetlane wyniki wyszukiwania -->
-      </div>
-
-      <div class="container" id="naczasie">
-        <h4 style="color: white; margin-bottom: 20px;margin-top: 50px;">Filmy Na Czasie</h4>
-        <div class="pic-container" id="pic">
-            <img style="width: auto; height: 400px;" src="trolle.jpg">
-        </div>
-        <div class="opis-container" id="opis">
-           <h2>Trolle 3 (2023)</h2>
-           <p style="opacity: 30%;width:auto ;">01.12.2023 (PL) Animacja,Familijny,Muzyczny,Fantasy,Komedia</p>
-           <h5>Opis</h5>
-           <p>When Branch’s brother, Floyd, is kidnapped for his musical talents by a pair of nefarious<br>
-            pop-star villains, Branch and Poppy embark on a harrowing and emotional journey to<br>
-            reunite the other brothers and rescue Floyd from a fate even worse than pop-culture obscurity.<br></p>
-           <p style="opacity: 40%;width: auto;">Średnia ocena widzów: <a style="color: orange;">60%</a></p>
-           <button style="width: auto; height: 45px ;text-align: center;" class="btn btn-rounded " id="searchButton">Zobacz Zwiastun</button>
+      <div class="container">
+       
+        <div class="movies-slider mt-4">
+          <div class="movies-container" id="moviesContainer">
+            <!-- Tutaj będą wyświetlane najpopularniejsze filmy -->
+          </div>
         </div>
       </div>
+      <h1 style="text-align: center;" class="text-center mt-4">Wyniki wyszukiwania</h1>
+      <div class="movies-container" id="moviesContainer2">
+        
+        <!-- Tutaj będą wyświetlane wyniki wyszukiwania -->
+        </div>
 </body>
 </html>
