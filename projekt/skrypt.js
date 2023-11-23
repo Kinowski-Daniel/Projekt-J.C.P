@@ -48,3 +48,69 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Oddzielam ----------------------------
+
+const MAX_MOVIES_TO_DISPLAY = 5; // Maksymalna liczba wyświetlanych filmów
+
+document.addEventListener('DOMContentLoaded', () => {
+  const moviesContainer = document.getElementById('moviesContainer');
+
+  fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Network response was not ok.');
+    })
+    .then(data => {
+      displayPopularMovies(data.results);
+    })
+    .catch(error => {
+      console.error('There has been a problem with your fetch operation:', error);
+    });
+
+  function displayPopularMovies(movies) {
+    movies.slice(0, MAX_MOVIES_TO_DISPLAY).forEach(movie => {
+      if (movie.poster_path) {
+        const movieElement = document.createElement('div');
+        movieElement.classList.add('movie-poster');
+
+        const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+        const title = movie.title;
+        const releaseDate = movie.release_date;
+
+        movieElement.innerHTML = `
+          <img src="${imageUrl}" alt="${title}" data-movie-id="${movie.id}">
+          <p>${releaseDate}</p>
+        `;
+
+        moviesContainer.appendChild(movieElement);
+      }
+    });
+
+    moviesContainer.addEventListener('click', (event) => {
+      const moviePoster = event.target.closest('.movie-poster img');
+      if (moviePoster) {
+        const movieId = moviePoster.dataset.movieId;
+        fetchMovieDetails(movieId);
+      }
+    });
+  }
+
+  function fetchMovieDetails(movieId) {
+    fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`)
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Network response was not ok.');
+      })
+      .then(movieDetails => {
+        console.log('Szczegóły filmu:', movieDetails);
+      })
+      .catch(error => {
+        console.error('There has been a problem with fetching movie details:', error);
+      });
+  }
+});
