@@ -81,7 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const releaseDate = movie.release_date;
 
         movieElement.innerHTML = `
-          <img src="${imageUrl}" alt="${title}" data-movie-id="${movie.id}">
+          <a href="https://www.themoviedb.org/movie/${movie.id}" target="_blank">
+            <img src="${imageUrl}" alt="${title}" data-movie-id="${movie.id}">
+          </a>
           <p>${releaseDate}</p>
         `;
 
