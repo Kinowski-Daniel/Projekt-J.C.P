@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (movie.poster_path) {
         const movieLink = document.createElement('a');
         movieLink.classList.add('movie');
-        movieLink.setAttribute('target', '_blank'); // Otwieranie linku w nowej karcie
+        movieLink.setAttribute('target', ''); // Otwieranie linku w nowej karcie
         movieLink.href = `https://www.themoviedb.org/movie/${movie.id}`;
 
         const moviePoster = document.createElement('img');
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const releaseDate = movie.release_date;
 
         movieElement.innerHTML = `
-          <a href="https://www.themoviedb.org/movie/${movie.id}" target="_blank">
+          <a href="https://www.themoviedb.org/movie/${movie.id}" target="">
             <img src="${imageUrl}" alt="${title}" data-movie-id="${movie.id}">
           </a>
           <p>${releaseDate}</p>
