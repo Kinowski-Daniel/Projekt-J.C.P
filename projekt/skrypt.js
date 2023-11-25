@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     searchMovie(query);
   });
 
-  function searchMovie(query) {
+  const searchMovie = (query) => {
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`;
 
     fetch(url)
@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
       });
-  }
+  };
 
-  function displayMovies(movies) {
+  const displayMovies = (movies) => {
     moviesContainer2.innerHTML = '';
 
     movies.forEach(movie => {
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         moviesContainer2.appendChild(movieLink);
       }
     });
-  }
+  };
 });
 
 // Oddzielam ----------------------------
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('There has been a problem with your fetch operation:', error);
     });
 
-  function displayPopularMovies(movies) {
+  const displayPopularMovies = (movies) => {
     movies.slice(0, MAX_MOVIES_TO_DISPLAY).forEach(movie => {
       if (movie.poster_path) {
         const movieElement = document.createElement('div');
@@ -98,9 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchMovieDetails(movieId);
       }
     });
-  }
+  };
 
-  function fetchMovieDetails(movieId) {
+  const fetchMovieDetails = (movieId) => {
     fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`)
       .then(response => {
         if (response.ok) {
@@ -114,5 +114,5 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(error => {
         console.error('There has been a problem with fetching movie details:', error);
       });
-  }
+  };
 });
