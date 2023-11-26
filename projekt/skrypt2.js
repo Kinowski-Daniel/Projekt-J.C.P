@@ -12,18 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
       throw new Error('Błąd sieciowy.');
     })
     .then(movieDetails => {
-      wyświetlSzczegółyFilmu(movieDetails);
+      displayMovieDetails(movieDetails);
     })
     .catch(error => {
       console.error('Wystąpił problem podczas pobierania szczegółów filmu:', error);
     });
 
-  const wyświetlSzczegółyFilmu = (film) => {
-    document.getElementById('movieTitle').innerText = film.title;
-    document.getElementById('releaseDate').innerText = film.release_date;
+  const displayMovieDetails = (movie) => {
+    document.getElementById('movieTitle').innerText = movie.title;
+    document.getElementById('releaseDate').innerText = movie.release_date;
     
     // Gatunki
-    const gatunki = film.genres.map(gatunek => gatunek.name).join(', ');
+    const gatunki = movie.genres.map(gatunek => gatunek.name).join(', ');
     document.getElementById('genres').innerText = gatunki;
     
     // Reżyser - tutaj może być konieczne inne API lub źródło danych, aby uzyskać informacje o reżyserze
@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Aktorzy - podobnie jak w przypadku reżysera, zakładamy, że nie są dostępni bezpośrednio
     document.getElementById('actors').innerText = 'Nie dostępne';
 
-    document.getElementById('overview').innerText = film.overview;
-    document.getElementById('averageRating').innerText = film.vote_average;
+    document.getElementById('overview').innerText = movie.overview;
+    document.getElementById('averageRating').innerText = movie.vote_average;
 
     // Plakat filmowy
-    const ścieżkaDoPlakatu = film.poster_path;
+    const ścieżkaDoPlakatu = movie.poster_path;
     const elementPlakatu = document.getElementById('moviePoster');
     if (ścieżkaDoPlakatu) {
       elementPlakatu.src = `https://image.tmdb.org/t/p/w500/${ścieżkaDoPlakatu}`;
@@ -47,12 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Link do TMDB
     const linkTMDB = document.getElementById('tmdbLink');
-    linkTMDB.href = `https://www.themoviedb.org/movie/${film.id}`;
+    linkTMDB.href = `https://www.themoviedb.org/movie/${movie.id}`;
 
-    // Zwiastun - zakładając, że link do zwiastuna nie jest dostępny w odpowiedzi
-    // Może być konieczne pobranie go z innego API lub mieć osobne źródło
-    // Na razie pozostawiamy to jako pusty iframe
-    const elementZwiastuna = document.getElementById('trailer');
-    elementZwiastuna.innerHTML = `<iframe width="100%" height="315" src="" frameborder="0" allowfullscreen></iframe>`;
+    // Link do zwiastuna na YouTube
+    const trailerLink = `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title)}+official+trailer`;
+    const trailerElement = document.getElementById('trailer');
+    trailerElement.innerHTML = `<a href="${trailerLink}" target="">Zobacz zwiastun na YouTube</a>`;
   };
 });
