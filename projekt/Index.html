@@ -2,120 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Szukaj Filmów</title>
+  <title>Movie Database Search</title>
   <!-- Dodajemy link do biblioteki Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styl.css">
   <script src="skrypt.js"></script>
-  <style>
-    
-body{
-    background-color: black;
-}
-input[type="search"] {
-  padding: 8px;
-  font-size: 16px;
   
-  
-  margin-top: 5%;
-}
-
-button {
-  padding: 10px 8px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: orange;
-  margin-top: 5%;
-
-}
-h1{
-    color: white;
-}
-.btn {
-  color: white;
-  background-color: orange;
-}
-#searchButton:hover{
-    background-color: orangered;
-}
-#obsButton:hover{
-    background-color: orangered;
-}
-.pic-container{
-width: auto;
-height: 400px;
-background-color: rgb(143, 102, 102);
-float: left;
-
-}
-.opis-container{
-    width: auto;
-    height: 400px;
-    background-color: rgb(44, 42, 42);
-    color: white;
-    margin-left: 5%;
-    text-align-last: left;
-    padding: 20px;
-    padding-left: 21%;
-    font-size: inherit;
-}
-#naczasie{
-    width: 1300px;
-}
-.movies-container{
-    color: white;
-}
-.movies-slider {
-      overflow: hidden;
-    }
-
-    .movies-container {
-      display: flex;
-      gap: 20px;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .movie {
-      width: 200px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .movie img {
-      width: 100%;
-      height: auto;
-    }
-
-    .movie:hover {
-      transform: scale(1.05);
-    }
-    .movies-container {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .movie-poster {
-      text-align: center;
-    }
-
-    .movie-poster img {
-      width: 200px;
-      border-radius: 8px;
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .movie-poster p {
-      margin-top: 5px;
-      font-size: 14px;
-    }
-
-    .movie-poster:hover img {
-      transform: scale(1.05);
-    }
-  </style>
 </head>
 <body>
 
@@ -126,6 +18,18 @@ float: left;
         <input type="search" class="form-control " id="searchInput" placeholder="Wyszukaj film...">
         <button class="btn btn " id="searchButton">Szukaj</button>
       </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="genreSelect">Gatunek</label>
+        <select class="form-select" id="genreSelect">
+          <option value="">Wybierz gatunek</option>
+          <option value="28">Akcja</option>
+          <option value="35">Komedia</option>
+          <option value="18">Dramat</option>
+          <option value="878">Science Fiction</option>
+          <option value="53">Thriller</option>
+        </select>
+      </div>
+      
     </div>
     <h1 class="text-center mt-4">Najbardziej popularne filmy</h1>
 </div>
