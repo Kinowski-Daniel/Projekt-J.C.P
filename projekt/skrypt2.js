@@ -26,11 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const gatunki = movie.genres.map(gatunek => gatunek.name).join(', ');
     document.getElementById('genres').innerText = gatunki;
     
-    // Reżyser - tutaj może być konieczne inne API lub źródło danych, aby uzyskać informacje o reżyserze
-    // Dla uproszczenia, załóżmy, że nie jest dostępne bezpośrednio i pozostawiamy to puste na razie
+
     document.getElementById('director').innerText = 'Nie dostępne';
-    
-    // Aktorzy - podobnie jak w przypadku reżysera, zakładamy, że nie są dostępni bezpośrednio
+  
     document.getElementById('actors').innerText = 'Nie dostępne';
 
     document.getElementById('overview').innerText = movie.overview;
