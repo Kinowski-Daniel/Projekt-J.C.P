@@ -1,10 +1,10 @@
-const API_KEY = 'b2676e3dfe0b9b9d794b8fe3233110fc';
+const klucz_API = 'b2676e3dfe0b9b9d794b8fe3233110fc';
 
 document.addEventListener('DOMContentLoaded', () => {
 	const urlParams = new URLSearchParams(window.location.search);
 	const movieId = urlParams.get('id');
 
-	fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`)
+	fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${klucz_API}`)
 		.then(response => {
 			if (response.ok) {
 				return response.json();
@@ -19,48 +19,47 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 
 	const displayMovieDetails = (movie) => {
-		document.getElementById('movieTitle').innerText = movie.title;
-		document.getElementById('releaseDate').innerText = movie.release_date;
+		document.getElementById('Tytul').innerText = movie.title;
+		document.getElementById('dataWydania').innerText = movie.release_date;
 
-		// Gatunki
+		
 		const gatunki = movie.genres.map(gatunek => gatunek.name).join(', ');
-		document.getElementById('genres').innerText = gatunki;
+		document.getElementById('gatunek').innerText = gatunki;
 
 		
 		
-		document.getElementById('director').innerText = 'Nie dostępne';
+		document.getElementById('rezyser').innerText = 'Nie dostępne';
 
-		// Aktorzy 
-		document.getElementById('actors').innerText = 'Nie dostępne';
+		
+		document.getElementById('aktorzy').innerText = 'Nie dostępne';
 
-		document.getElementById('overview').innerText = movie.overview;
-		document.getElementById('averageRating').innerText = movie.vote_average;
+		document.getElementById('opis').innerText = movie.overview;
+		document.getElementById('sredniaOcen').innerText = movie.vote_average;
 
-		// Plakat filmowy
+		
 		const ścieżkaDoPlakatu = movie.poster_path;
 		const elementPlakatu = document.getElementById('moviePoster');
 		if (ścieżkaDoPlakatu) {
 			elementPlakatu.src = `https://image.tmdb.org/t/p/w500/${ścieżkaDoPlakatu}`;
 		}
 		else {
-			elementPlakatu.style.display = 'none'; // Ukryj plakat, jeśli niedostępny
+			elementPlakatu.style.display = 'none'; 
 		}
 
-		// Link do TMDB
+	
 		const linkTMDB = document.getElementById('tmdbLink');
 		linkTMDB.href = `https://www.themoviedb.org/movie/${movie.id}`;
 
-		// Link do zwiastuna na YouTube
-		const trailerLink = `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title)}+official+trailer`;
+		
+		const zwiastunLink = `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title)}+official+trailer`;
 		const trailerElement = document.getElementById('trailer');
-		trailerElement.innerHTML = `<a href="${trailerLink}" target="">Zobacz zwiastun na YouTube</a>`;
+		trailerElement.innerHTML = `<a href="${zwiastunLink}" target="">Zobacz zwiastun na YouTube</a>`;
 	};
 	const submitRatingg = () => {
-		const rating = parseFloat(document.getElementById('ratingSlider').value);
+		const rating = parseFloat(document.getElementById('suwak').value);
 
-		//Czy ocena mieści się w zakresie 0-10
+		
 		if (rating >= 0 && rating <= 10) {
-			// Zapisz ocenę w localStorage
 			localStorage.setItem(`movie_${movieId}_rating`, rating);
 			console.log('Ocena została zapisana lokalnie.');
 			
@@ -70,11 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	};
 
-	document.getElementById('submitRating').addEventListener('click', submitRatingg);
+	document.getElementById('potwierdz').addEventListener('click', submitRatingg);
 
-	//ocena z localStorage przy ładowaniu strony
+	
 	const storedRating = localStorage.getItem(`movie_${movieId}_rating`);
 	if (storedRating) {
-		document.getElementById('ratingSlider').value = storedRating;
+		document.getElementById('suwak').value = storedRating;
 	}
 });
