@@ -1,61 +1,55 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <title>Movie Database Search</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styl.css">
-  <script src="skrypt.js"></script>
-  
-</head>
-<body>
-
-  <div class="container">
-    <div class="text-center mt-4">
-      <h1>SzukajFilmów.pl</h1>
-      <div class="input-group mb-3 mt-3">
-        <input type="search" class="form-control " id="searchInput" placeholder="Wyszukaj film...">
-        <button class="btn btn " id="searchButton">Szukaj</button>
-      </div>
-      <div class="input-group mb-3">
-        <label class="input-group-text" for="genreSelect">Gatunek</label>
-        <select class="form-select" id="genreSelect">
-          <option value="">Wybierz gatunek</option>
-          <option value="28">Akcja</option>
-          <option value="35">Komedia</option>
-          <option value="18">Dramat</option>
-          <option value="878">Science Fiction</option>
-          <option value="53">Thriller</option>
-        </select>
-      </div>
-      <div  class="col-md-6">
-            <div class="input-group">
-              <select id="sortSelect" class="custom-select">
-                <option value="desc">Od najnowszego</option>
-                <option value="asc">Od najstarszego</option>
-              </select>
-              <div class="input-group-append">
-                <button id="sortButton" class="btn btn-secondary" type="button" onclick="">Sortuj</button>
-              </div>
-            </div>
-    </div>
-    
-</div>
-
-      <div class="container">
-       
-        <div class="movies-slider mt-4">
-          <div class="movies-container" id="moviesContainer">
-            <!-- Tutaj będą wyświetlane najpopularniejsze filmy -->
-          </div>
-        </div>
-      </div>
-      <h1 style="text-align: center;" class="text-center mt-4">Wyniki wyszukiwania</h1>
-      <div  class="movies-container" id="moviesContainer2">
-        
-        <!-- Tutaj będą wyświetlane wyniki wyszukiwania -->
-        </div>
-      </div>
-    </div>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Movie Database Search</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="styl.css">
+		<script src="skrypt.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="text-center mt-4">
+				<h1>SzukajFilmów.pl</h1>
+				<div class="input-group mb-3 mt-3">
+					<input type="search" class="form-control " id="searchInput" placeholder="Wyszukaj film...">
+					<button class="btn btn " id="searchButton">Szukaj</button>
+				</div>
+				<div class="input-group mb-3">
+					<label class="input-group-text" for="genreSelect">Gatunek</label>
+					<select class="form-select" id="genreSelect">
+						<option value="">Wybierz gatunek</option>
+						<option value="28">Akcja</option>
+						<option value="35">Komedia</option>
+						<option value="18">Dramat</option>
+						<option value="878">Science Fiction</option>
+						<option value="53">Thriller</option>
+					</select>
+				</div>
+				<div  class="col-md-6">
+					<div class="input-group">
+						<select id="sortSelect" class="custom-select">
+							<option value="desc">Od najnowszego</option>
+							<option value="asc">Od najstarszego</option>
+						</select>
+						<div class="input-group-append">
+							<button id="sortButton" class="btn btn-secondary" type="button" onclick="">Sortuj</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="movies-slider mt-4">
+					<div class="movies-container" id="moviesContainer">
+						<!-- Tutaj będą wyświetlane najpopularniejsze filmy -->
+					</div>
+				</div>
+			</div>
+			<h1 style="text-align: center;" class="text-center mt-4">Wyniki wyszukiwania</h1>
+			<div  class="movies-container" id="moviesContainer2">
+				<!-- Tutaj będą wyświetlane wyniki wyszukiwania -->
+			</div>
+		</div>
+		</div>
+	</body>
 </html>
