@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>SzukajFilmów</title>
+  <title>Movie Database Search</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styl.css">
   <script src="skrypt.js"></script>
@@ -28,9 +28,18 @@
           <option value="53">Thriller</option>
         </select>
       </div>
-      
+      <div  class="col-md-6">
+            <div class="input-group">
+              <select id="sortSelect" class="custom-select">
+                <option value="desc">Od najnowszego</option>
+                <option value="asc">Od najstarszego</option>
+              </select>
+              <div class="input-group-append">
+                <button id="sortButton" class="btn btn-secondary" type="button">Sortuj</button>
+              </div>
+            </div>
     </div>
-    <h1 class="text-center mt-4">Najbardziej popularne filmy</h1>
+    
 </div>
 
       <div class="container">
@@ -42,9 +51,11 @@
         </div>
       </div>
       <h1 style="text-align: center;" class="text-center mt-4">Wyniki wyszukiwania</h1>
-      <div class="movies-container" id="moviesContainer2">
+      <div  class="movies-container" id="moviesContainer2">
         
         <!-- Tutaj będą wyświetlane wyniki wyszukiwania -->
         </div>
+      </div>
+    </div>
 </body>
 </html>
