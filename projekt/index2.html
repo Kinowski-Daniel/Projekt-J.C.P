@@ -1,45 +1,42 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <title>Movie Details</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styl.css">
-  <script src="skrypt2.js"></script>
-</head>
-<body>
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-4">
-        <img id="moviePoster" class="img-fluid mb-3" src="#" alt="Movie Poster">
-        <div class="mb-3">
-        </div>
-      </div>
-      <div class="col-md-8">
-        <!-- Szczegóły filmu -->
-        <h1 id="movieTitle"></h1>
-        <p><strong>Release Date:</strong> <span id="releaseDate"></span></p>
-        <p><strong>Genres:</strong> <span id="genres"></span></p>
-        <p><strong>Director:</strong> <span id="director"></span></p>
-        <p><strong>Actors:</strong> <span id="actors"></span></p>
-        <p><strong>Overview:</strong></p>
-        <p id="overview"></p>
-        <p><strong>Average Rating:</strong> <span id="averageRating"></span></p>
-        <div class="rating">
-          <input type="range" min="0" max="10" step="0.1" value="5" id="ratingSlider">
-          <span style="color: white;" id="currentRating">5.0/10</span>
-          <button id="submitRating" onclick="submitRatingg()">Oceń</button>
-        </div>
-        
-      </div>
-         <!-- Link do The Movie Database -->
-         <a id="tmdbLink" href="" target="_blank" class="btn btn-mb-3">Zobacz na TMDB</a>
-         <!-- Trailer -->
-         <div id="trailer" class="mb-3">
-           
-         </div>
-    </div>
-  </div>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Movie Details</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="styl.css">
+		<script src="skrypt2.js"></script>
+	</head>
+	<body>
+		<div class="container mt-5">
+			<div class="row">
+				<div class="col-md-4">
+					<img id="moviePoster" class="img-fluid mb-3" src="#" alt="Movie Poster">
+					<div class="mb-3">
+					</div>
+				</div>
+				<div class="col-md-8">
+					
+					<h1 id="movieTitle"></h1>
+					<p><strong>Data Wydania:</strong> <span id="releaseDate"></span></p>
+					<p><strong>Gatunek:</strong> <span id="genres"></span></p>
+					<p><strong>Reżyszer:</strong> <span id="director"></span></p>
+					<p><strong>Aktorzy:</strong> <span id="actors"></span></p>
+					<p><strong>Opis:</strong></p>
+					<p id="overview"></p>
+					<p><strong>Average Rating:</strong> <span id="averageRating"></span></p>
+					<div class="rating">
+						<input type="range" min="0" max="10" step="0.1" value="5" id="ratingSlider">
+						<span style="color: white;" id="currentRating">/10</span>
+						<button id="submitRating" onclick="submitRatingg()">Oceń</button>
+					</div>
+				</div>
+				
+				<a id="tmdbLink" href="" target="_blank" class="btn btn-mb-3">Zobacz na TMDB</a>
+				
+				<div id="trailer" class="mb-3">
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
