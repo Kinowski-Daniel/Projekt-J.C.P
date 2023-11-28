@@ -84,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 				const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 				const title = movie.title;
-				const releaseDate = movie.release_date;
 
 				movieElement.innerHTML = `
           <a href="index2.html?id=${movie.id}" class="movie-link">
