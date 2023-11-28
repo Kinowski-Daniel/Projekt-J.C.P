@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectedGenre = genreSelect.value; // Pobieranie wybranego gatunku
     searchMovie(query, selectedGenre);
   });
+  
 
   const searchMovie = (query, genre) => {
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`;
@@ -55,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 });
+
   // Kod dla popularnych filmów
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -98,3 +100,43 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //----------------------------------------------------------------------------------
+const sortSelect = document.getElementById('sortSelect'); // Dodane rozwijane menu z opcjami sortowania
+  sortSelect.addEventListener('change', () => {
+    const selectedSortOption = sortSelect.value;
+    if (selectedSortOption === 'release_date') {
+      // Sortowanie filmów po roku wydania
+      const movies = Array.from(moviesContainer2.querySelectorAll('.movie'));
+      movies.sort((a, b) => {
+        const movieAYear = parseInt(a.dataset.releaseYear);
+        const movieBYear = parseInt(b.dataset.releaseYear);
+        return movieBYear - movieAYear;
+      });
+      // Ponowne umieszczenie posortowanej listy filmów w kontenerze
+      moviesContainer2.innerHTML = '';
+      movies.forEach(movie => {
+        moviesContainer2.appendChild(movie);
+      });
+    }
+  });
+
+  const displayMovies = (movies) => {
+    moviesContainer2.innerHTML = 'moviesContainer2';
+
+    movies.forEach(movie => {
+      if (movie.poster_path) {
+        const movieLink = document.createElement('a');
+        movieLink.href = `index.html?id=${movie.id}`;
+        movieLink.setAttribute('target', '');
+        movieLink.classList.add('movie');
+        movieLink.dataset.releaseYear = movie.release_date.slice(0, 4); // Dodanie roku wydania do dataset
+
+        const moviePoster = document.createElement('img');
+        moviePoster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+        moviePoster.alt = movie.title;
+
+        movieLink.appendChild(moviePoster);
+        moviesContainer2.appendChild(movieLink);
+      }
+    });
+  };
+
