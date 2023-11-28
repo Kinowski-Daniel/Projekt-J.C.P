@@ -26,13 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
           return response.json();
         }
-        throw new Error('Network response was not ok.');
+        throw new Error('Błąd sieciowy.');
       })
       .then(data => {
         wyswietlFilm(data.results);
       })
       .catch(error => {
-        console.error('There has been a problem with your fetch operation:', error);
+        console.error('Wystąpił problem podczas pobierania szczegółów filmu:', error);
       });
   };
 
@@ -67,13 +67,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (response.ok) {
         return response.json();
       }
-      throw new Error('Network response was not ok.');
+      throw new Error('Błąd sieciowy.');
     })
     .then(data => {
       wyswietlPopularneFilmy(data.results);
     })
     .catch(error => {
-      console.error('There has been a problem with your fetch operation:', error);
+      console.error('Wystąpił problem podczas pobierania szczegółów filmu:', error);
     });
 
   const wyswietlPopularneFilmy = (movies) => {
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 });
 
-
+//Kod do Sortowania
 const sortowanie = document.getElementById('sortowanie'); //Rozwijane menu z opcjami sortowania
 sortowanie.addEventListener('change', () => {
   const wybranySort = sortowanie.value;
