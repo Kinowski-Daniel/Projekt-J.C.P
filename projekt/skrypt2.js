@@ -12,13 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
 			throw new Error('Błąd sieciowy.');
 		})
 		.then(movieDetails => {
-			displayMovieDetails(movieDetails);
+			wyswietlSzegoly(movieDetails);
 		})
 		.catch(error => {
 			console.error('Wystąpił problem podczas pobierania szczegółów filmu:', error);
 		});
 
-	const displayMovieDetails = (movie) => {
+	const wyswietlSzegoly = (movie) => {
 		document.getElementById('Tytul').innerText = movie.title;
 		document.getElementById('dataWydania').innerText = movie.release_date;
 
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const trailerElement = document.getElementById('trailer');
 		trailerElement.innerHTML = `<a href="${zwiastunLink}" target="">Zobacz zwiastun na YouTube</a>`;
 	};
-	const submitRatingg = () => {
+	const powtierdzOcene = () => {
 		const rating = parseFloat(document.getElementById('suwak').value);
 
 		
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	};
 
-	document.getElementById('potwierdz').addEventListener('click', submitRatingg);
+	document.getElementById('potwierdz').addEventListener('click', powtierdzOcene);
 
 	
 	const storedRating = localStorage.getItem(`movie_${movieId}_rating`);
